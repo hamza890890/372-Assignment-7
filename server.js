@@ -17,9 +17,7 @@ const pool = new Pool({
 
 const PORT = process.env.PORT || 3000;
 
-// ========== ROUTES BELOW ==========
-
-// GET /jokebook/categories
+// http://localhost:3000/jokebook/categories 
 app.get("/jokebook/categories", async (req, res) => {
   try {
     const result = await pool.query("SELECT name AS category FROM categories ORDER BY name");
@@ -30,7 +28,10 @@ app.get("/jokebook/categories", async (req, res) => {
   }
 });
 
-// GET /jokebook/category/:category?limit=#
+/* 
+   http://localhost:3000/jokebook/category/funnyJoke
+   http://localhost:3000/jokebook/category/funnyJoke?limit=2
+ */
 app.get("/jokebook/category/:category", async (req, res) => {
   let category = req.params.category;
   let limit = req.query.limit;
@@ -61,7 +62,9 @@ app.get("/jokebook/category/:category", async (req, res) => {
   }
 });
 
-// GET /jokebook/random
+/*
+   http://localhost:3000/jokebook/random
+*/
 app.get("/jokebook/random", async (req, res) => {
   try {
     const result = await pool.query(`
@@ -78,7 +81,13 @@ app.get("/jokebook/random", async (req, res) => {
   }
 });
 
-// POST /jokebook/add
+/* 
+   http://localhost:3000/jokebook/add
+   (Form Data Body)
+   category = funnyJoke
+   setup = Why did the computer show up at work late?
+   delivery = It had a hard drive!
+*/
 app.post("/jokebook/add", async (req, res) => {
   let category = req.body.category;
   let setup = req.body.setup;
@@ -86,7 +95,7 @@ app.post("/jokebook/add", async (req, res) => {
 
   if (category && setup && delivery) {
     try {
-      // ensure category exists
+      // Check to see if category even exists
       let catResult = await pool.query("SELECT id FROM categories WHERE name=$1", [category]);
       let catId;
       if (catResult.rows.length === 0) {
@@ -99,13 +108,13 @@ app.post("/jokebook/add", async (req, res) => {
         catId = catResult.rows[0].id;
       }
 
-      // add joke
+      // Add a Query to insert new joke
       await pool.query(
         "INSERT INTO jokes (category_id, setup, delivery) VALUES ($1, $2, $3)",
         [catId, setup, delivery]
       );
 
-      // return updated jokes (with category name)
+      // Return updated list of jokes (with category name that is a seperate table)
       const jokes = await pool.query(`
         SELECT j.setup, j.delivery, c.name AS category
         FROM jokes j
@@ -122,7 +131,6 @@ app.post("/jokebook/add", async (req, res) => {
     res.status(400).send("Missing required parameters: category, setup, or delivery");
   }
 });
-
 
 app.listen(PORT, () => {
   console.log("Server listening on port: " + PORT + "!");

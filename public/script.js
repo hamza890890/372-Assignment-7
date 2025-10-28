@@ -10,7 +10,7 @@
     id("add-joke-form").addEventListener("submit", addJoke);
   }
 
-  // ======== GET RANDOM JOKE ========
+  // GET RANDOM JOKE function 
   function getRandomJoke() {
     fetch("/jokebook/random")
       .then(checkStatus)
@@ -21,7 +21,7 @@
       .catch(console.error);
   }
 
-  // ======== GET ALL CATEGORIES ========
+  // GET ALL CATEGORIES function 
   function getCategories() {
     fetch("/jokebook/categories")
       .then(checkStatus)
@@ -38,7 +38,7 @@
       .catch(console.error);
   }
 
-  // ======== GET JOKES BY CATEGORY ========
+  // GET JOKES BY CATEGORY function 
   function getCategory(category) {
     fetch("/jokebook/category/" + category)
       .then(checkStatus)
@@ -46,7 +46,7 @@
       .catch(console.error);
   }
 
-  // ======== SEARCH CATEGORY ========
+  // SEARCH CATEGORY function 
   function searchCategory() {
     let category = id("category-input").value;
     if (category.trim() !== "") {
@@ -54,7 +54,7 @@
     }
   }
 
-  // ======== ADD NEW JOKE ========
+  // ADD A NEW JOKE function 
   function addJoke(evt) {
     evt.preventDefault();
     let data = new FormData(id("add-joke-form"));
@@ -67,7 +67,7 @@
       .catch(console.error);
   }
 
-  // ======== DISPLAY JOKES ========
+  // DISPLAY JOKES function 
   function showJokes(jokes) {
     let div = id("category-jokes");
     div.innerHTML = "";
@@ -78,7 +78,7 @@
     });
   }
 
-  // ======== HELPERS ========
+  // HELPER function 
   function id(name) {
     return document.getElementById(name);
   }
