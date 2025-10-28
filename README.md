@@ -5,7 +5,7 @@ This project is a full-stack web application built with Node.js, Express, and Po
 # Setup Instructions
 
 1. Clone the Repository
-   git clone https://github.com/YOUR_USERNAME/assignment-7-jokebook.git
+   git clone https://github.com/hamza890890/assignment-7-jokebook.git
    cd assignment-7-jokebook
 
 2. Install Dependencies
@@ -69,18 +69,6 @@ Expected JSON Output:
 - Add Joke form lets users submit a new joke
 - Category name is displayed beside each joke
 
-# Database Schema (ER Diagram)
-
-categories (1) ----> (Many) jokes
-categories table:
-id (PK)
-name
-jokes table:
-id (PK)
-setup
-delivery
-category_id (FK)
-
 # Testing with Thunder Client
 All endpoints can be tested inside VS Code using Thunder Client:
 
@@ -91,8 +79,6 @@ All endpoints can be tested inside VS Code using Thunder Client:
    - delivery
 
 # Demo Video
-Once recorded, paste your OneDrive share link below:
-Insert OneDrive Demo Video Link Here
 
 # Technologies Used
 - Node.js
