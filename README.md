@@ -87,7 +87,7 @@ All endpoints can be tested inside VS Code using Thunder Client:
 - Thunder Client (API Testing)
 - HTML, CSS, JavaScript (Frontend)
 
-# Provided SQL Script
+# Provided SQL Script (Copy and paste the following into your SQL Editor and click run)
 
 CREATE TABLE categories (
   id SERIAL PRIMARY KEY,
