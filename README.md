@@ -18,7 +18,7 @@ This project is a full-stack web application built with Node.js, Express, and Po
      DATABASE_URL=your_neon_database_url_here
 
 4. Run the SQL Setup Script
-   Paste the provided SQL file into Neon's SQL editor to create and populate:
+   Paste the provided SQL script (at the bottom of these instructions) into Neon's SQL editor to create and populate: 
    - categories table
    - jokes table
    - Initial jokes for funnyJoke and lameJoke
@@ -86,6 +86,36 @@ All endpoints can be tested inside VS Code using Thunder Client:
 - PostgreSQL (Neon)
 - Thunder Client (API Testing)
 - HTML, CSS, JavaScript (Frontend)
+
+# Provided SQL Script
+
+CREATE TABLE categories (
+  id SERIAL PRIMARY KEY,
+  name TEXT UNIQUE NOT NULL
+);
+
+CREATE TABLE jokes (
+  id SERIAL PRIMARY KEY,
+  category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
+  setup TEXT NOT NULL,
+  delivery TEXT NOT NULL
+);
+
+INSERT INTO categories (name) VALUES
+('funnyJoke'),
+('lameJoke');
+
+INSERT INTO jokes (category_id, setup, delivery) VALUES
+(1, 'Why did the student eat his homework?', 'Because the teacher told him it was a piece of cake!'),
+(1, 'What kind of tree fits in your hand?', 'A palm tree'),
+(1, 'What is worse than raining cats and dogs?', 'Hailing taxis');
+
+INSERT INTO jokes (category_id, setup, delivery) VALUES
+(2, 'Which bear is the most condescending?', 'Pan-DUH'),
+(2, 'What would the Terminator be called in his retirement?', 'The Exterminator');
+
+SELECT * FROM categories;
+SELECT * FROM jokes;
 
 # Author
 Hamza Ahmed  
