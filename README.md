@@ -5,13 +5,13 @@ This project is a full-stack web application built with Node.js, Express, and Po
 # Project Structure
 assignment-7-jokebook/
 |
-├── server.js           # Main server file with API endpoints
-├── .env                # Contains DATABASE_URL (not pushed to GitHub)
+├── server.js           
+├── .env                
 ├── public/
-│   ├── index.html      # Front-end webpage
-│   └── script.js       # Client-side JavaScript using fetch
+│   ├── index.html      
+│   └── script.js       
 ├── README.md
-└── .gitignore          # Ensures node_modules and .env are ignored
+└── .gitignore          
 
 # Setup Instructions
 
