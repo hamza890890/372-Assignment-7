@@ -1,4 +1,4 @@
-# Jokebook (CSC372 - Assignment 7)
+# Jokebook: CSC372 - Assignment 7 (Look below at the Demo Video Section to view the Demo video)
 
 This project is a full-stack web application built with Node.js, Express, and PostgreSQL. It allows users to view, search, and add jokes stored in a relational database. The database is hosted on Neon and accessed securely through environment variables.    
 
@@ -79,6 +79,7 @@ All endpoints can be tested inside VS Code using Thunder Client:
    - delivery
 
 # Demo Video
+https://uncg.instructuremedia.com/embed/ac6f7f2e-76bd-42ba-95d9-5f128419d2b9
 
 # Technologies Used
 - Node.js
