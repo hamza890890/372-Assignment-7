@@ -79,7 +79,7 @@ All endpoints can be tested inside VS Code using Thunder Client:
    - delivery
 
 # Demo Video
-https://uncg.instructuremedia.com/embed/ac6f7f2e-76bd-42ba-95d9-5f128419d2b9
+[[https://uncg.instructuremedia.com/embed/ac6f7f2e-76bd-42ba-95d9-5f128419d2b9](https://uncg.instructuremedia.com/embed/a99cddde-2cf8-4841-b893-1f3e59d65b68)](https://uncg.instructuremedia.com/embed/a99cddde-2cf8-4841-b893-1f3e59d65b68)
 
 # Technologies Used
 - Node.js
